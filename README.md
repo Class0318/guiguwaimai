@@ -1,4 +1,4 @@
-# gshop-client_blank
+ # gshop-client_blank
 
 ## Project setup
 ```

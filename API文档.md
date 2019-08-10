@@ -45,7 +45,7 @@
 ## 2、获取食品分类列表
 
 ### 请求URL：
-	http://localhost:4000/index_category
+	http://localhost:4000/  
 
 ### 请求方式：
 	GET
@@ -482,10 +482,10 @@
         "msg": "手机号或验证码不正确"
       }
       
-### 9、根据会话获取用户信息
+### 9、自动登录
 
 #### 请求URL：
-	http://localhost:4000/userinfo
+	http://localhost:4000/auto_login
 
 #### 请求方式：
 	GET

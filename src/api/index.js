@@ -17,7 +17,11 @@ export const reqAddress = (longitude,latitude) => ajax({
 
 //2.获取食品分类列表
 
-export const reqCategorys = () => ajax.get(BASE + '/index_category')
+export const reqCategorys = () => ajax.get(BASE + '/index_category',{
+  headers: {
+    needToken: true
+  }
+})
 
 
 //3.根据经纬度获取商铺列表
@@ -26,12 +30,47 @@ export const reqShops = ({ latitude, longitude}) => ajax({
  params:{
    latitude,
    longitude
- }
+ },
+ headers: {
+  needToken: true
+}
+
+})
+
+//4.发生短信验证码
+export const reqSendCode = (phone) => ajax.get(BASE + '/sendcode', {
+  params:{
+    phone
+  }
+})
+
+//5.用户名密码登录
+export const reqPwdLogin = ({
+  name,
+  pwd,
+  captcha
+}) => ajax.post(BASE + '/login_pwd', {
+  name,
+  pwd,
+  captcha
+})
+
+//6.手机号短信验证码登录
+
+export const reqSmsLogin = (phone,code) => ajax.post(BASE + 'login_sms',{
+  phone,
+  code
+})
+
+//7. 自动登录请求
+
+export const reqAutoLogin = () => ajax({
+  url: BASE + '/auto_login',
+  headers: {
+    needToken : true 
+  }
 
 })
 
 export const reqBaiduxxx = () => ajax(BASE2 + '/xxx')
 
-reqAddress('116.36867', '40.10038').then((result) => {
-  console.log('result', result)
-})
